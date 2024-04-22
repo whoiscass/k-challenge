@@ -64,6 +64,17 @@ $ curl --location 'localhost:3002/products' \
 $ curl --location 'localhost:3002/products/order?sku=sku1%sdk2' \
 --header 'Authorization: "authorization field from login request"' \
 
+# CREATE ORDER
+$ curl --location 'localhost:3000/orders' \
+--header 'Authorization: "authorization field from login request"' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: Authentication="authorization field from login request"' \
+--data '{
+  "name": "gggg",
+  "sku": "gggggg",
+  "price": 750
+}'
+
 # GET ALL ORDERS
 $ curl --location 'localhost:3000/orders' \
 --header 'Authorization: "authorization field from login request"' \

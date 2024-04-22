@@ -18,7 +18,6 @@ $ docker-compose up --build -V
 $ curl --location 'localhost:3001/auth/users' \
 --header 'Authorization: "authorization field from login request"' \
 --header 'Content-Type: application/json' \
---header 'Cookie: Authentication=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjI1OTk0MWY0YjIwNjI1ZDJjOTM4ZjEiLCJpYXQiOjE3MTM3NDAyMjgsImV4cCI6MTcxMzc0MzgyOH0.LP8Lzm2lMA5TIt-KRW4mLvbfBBz6KW_BBNtXdFwVMBs' \
 --data-raw '{
     
     "name": "xxx",
@@ -29,4 +28,55 @@ $ curl --location 'localhost:3001/auth/users' \
     
     "password": "xxx"
 }'
+
+# LOGIN
+$ curl --location 'localhost:3001/auth/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    
+    "email": "qqq@qqq.com",
+
+    
+    "password": "qqq"
+}'
+
+# CREATE PRODUCT
+$ curl --location 'localhost:3002/products' \
+--header 'Authorization: "authorization field from login request"' \
+--header 'Content-Type: application/json' \
+--data '{
+    
+  "name": "",
+
+  
+  "sku": "",
+
+  
+  "price": 0
+}'
+
+# GET ALL PRODUCTS
+$ curl --location 'localhost:3002/products' \
+--header 'Authorization: "authorization field from login request"' \
+--data ''
+
+# GET ORDER'S PRODUCTS BY SKU
+$ curl --location 'localhost:3002/products/order?sku=sku1%sdk2' \
+--header 'Authorization: "authorization field from login request"' \
+
+# GET ALL ORDERS
+$ curl --location 'localhost:3000/orders' \
+--header 'Authorization: "authorization field from login request"' \
+
+# GET ORDER BY ID
+$ curl --location 'localhost:3000/orders/:id' \
+--header 'Authorization: "authorization field from login request"' \
+
+# GET LAST MONTH TOTAL SOLD PRICE
+$ curl --location 'localhost:3000/orders/total' \
+--header 'Authorization: "authorization field from login request"' \
+
+# GET HIGHER AMOUNT ORDER
+$ curl --location 'localhost:3000/orders/higher-order' \
+--header 'Authorization: "authorization field from login request"' \
 ```

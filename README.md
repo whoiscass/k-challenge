@@ -1,3 +1,8 @@
+## Tech debt
+```bash
+$ logica para recibir imagen en endpoint de create product
+```
+
 ## Installation
 
 ```bash
